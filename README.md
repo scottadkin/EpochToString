@@ -11,7 +11,10 @@ Constructor EpochToString(unixEpoch, maxUnits);
 
 
 Create a new instance: 
+
 ```javascript
-const test = new EpochToString(1573767245, 3);
+const test = new EpochToString(1573767245, 4);
 console.log(test.getString());
 ```
+Expected result will be something like this:
+``1 Year, 3 days, 27 seconds``

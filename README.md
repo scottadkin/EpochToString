@@ -4,11 +4,11 @@
 This small package returns a string of time units compared to the current date the script is run.
 
 Returned time units:
-- Years,
-- Weeks,
-- Days,
-- Hours,
-- Minutes,
+- Years
+- Weeks
+- Days
+- Hours
+- Minutes
 - Seconds
 
  ## How to use

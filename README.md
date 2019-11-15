@@ -35,4 +35,4 @@ const example2 = new EpochToString(1573767245, 4, 1000000000);
 console.log(example2.getString());
 ```
 Expected result will be something like this:
-``1 Year, 3 days, 27 seconds``
+``1 Year, 3 days, 5 minutes, 27 seconds``

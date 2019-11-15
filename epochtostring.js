@@ -2,17 +2,25 @@
 
 
 
-function EpochToString(date, maxUnits){
+function EpochToString(date, maxUnits, compareTo){
 
     this.currentDate = date;
         
     this.maxUnits = maxUnits;
 
-    const now = new Date();
+    const target = new Date();
 
-    this.now = Math.floor(now.getTime() / 1000);
+    this.target = Math.floor(target.getTime() / 1000);
 
-    this.offset = this.now - this.currentDate;
+    if(compareTo != undefined){
+
+        this.target = compareTo;
+        
+    }
+
+    this.offset = Math.abs(this.target - this.currentDate);
+
+    console.log(this.offset);
 
     this.currentBits = [];
 

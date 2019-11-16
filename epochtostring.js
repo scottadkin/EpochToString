@@ -135,7 +135,7 @@ function EpochToString(date, maxUnits, compareTo){
         ];
 
         while(currentIndex < values.length){
-
+            
             if(values[currentIndex] != 0){
                 this.setParts(values[currentIndex], this.fixPostFix(this.strings[currentIndex], values[currentIndex]));
             }
@@ -156,15 +156,21 @@ function EpochToString(date, maxUnits, compareTo){
 
         for(let i = 0; i < this.currentBits.length; i++){
 
+            
             if(i < this.maxUnits){
 
-                string += this.currentBits[i].value+" "+this.currentBits[i].type;
+                if(this.currentBits[i].value != undefined && this.currentBits[i].type != undefined){
+                    string += this.currentBits[i].value+" "+this.currentBits[i].type;
+                }
+
+
+                if(i < this.maxUnits - 1 && i < this.currentBits.length - 1){
+                    string += ", ";
+                }
 
             }
 
-            if(i < this.maxUnits - 1 && i < this.currentBits.length - 1){
-                string += ", ";
-            }
+            
         }
 
         if(this.currentBits.length == 0){

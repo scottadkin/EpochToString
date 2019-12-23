@@ -20,7 +20,7 @@ function EpochToString(date, maxUnits, compareTo){
 
     this.offset = Math.abs(this.target - this.currentDate);
 
-    console.log(this.offset);
+   // console.log(this.offset);
 
     this.currentBits = [];
 
@@ -48,13 +48,41 @@ function EpochToString(date, maxUnits, compareTo){
     this.setValues = () =>{
 
 
-        let seconds = this.offset % 60;
+        /*let seconds = this.offset % 60;
         let minutes = (this.offset / 60) % 60;
         let hours = (this.offset / (60 * 60)) % 24;
         let days = (this.offset / ((60 * 60) * 24)) % 7;
         let weeks = (this.offset / (((60 * 60) * 24) * 7)) % 4;
-        // const months = (this.offset / ((60 * 60) * 24) * 30.41) % 12;
-        let years = (this.offset / ((60 * 60) * 24)) / 365;
+        let years = (this.offset / ((60 * 60) * 24)) / 365;*/
+
+
+
+
+
+        const SECOND = 1;
+        const MINUTE = 60;
+        const HOUR = 60 * 60;
+        const DAY = HOUR * 24;
+        const WEEK = DAY * 7;
+        const YEAR = DAY * 365;
+
+
+
+        seconds = this.offset % 60;
+        minutes = this.offset / MINUTE;
+        hours = this.offset / HOUR;
+        days = this.offset / DAY;
+        weeks = this.offset / WEEK;
+        years = this.offset / YEAR;
+
+
+        //console.log("years = "+years+"\n weeks = "+weeks+" \ndays = "+days+" \nhours = "+hours+" \nminutes = "+minutes+" \nseconds = "+seconds+"\n"+this.offset);
+
+        minutes = minutes % 60;
+        hours = hours % 24;
+        days = days % 7;
+        weeks = weeks % 52;
+        
 
 
         
@@ -64,6 +92,9 @@ function EpochToString(date, maxUnits, compareTo){
         days = Math.floor(days);
         weeks = Math.floor(weeks);
         years = Math.floor(years);
+
+
+       // console.log("years = "+years+" weeks = "+weeks+" days = "+days+" hours = "+hours+" minutes = "+minutes+" seconds = "+seconds);
 
         this.currentValues.seconds = seconds;
         this.currentValues.minutes = minutes;
